@@ -5,6 +5,8 @@ WORKDIR /Build
 #bloodstone services
 # debug first
 RUN cd Bloodstone/Debug && dotnet build -c Release
+RUN cd Bloodstone/Subrace && dotnet build -c Release
+
 #
 #
 #
@@ -17,6 +19,7 @@ LABEL maintainer "urothis@gmail.com"
 # bloodstone
 # debug
 COPY --from=build /Build/Bloodstone/Debug/bin/Release/Plugins/ /nwn/Dotnet/Plugins
+COPY --from=build /Build/Bloodstone/Subrace/bin/Release/Plugins/ /nwn/Dotnet/Plugins
 #
 #
 #
