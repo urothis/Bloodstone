@@ -363,3 +363,5 @@ FodyWeavers.xsd
 data/
 logs/
 server/
+
+.idea/
