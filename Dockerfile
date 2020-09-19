@@ -4,7 +4,8 @@ ADD ./src/Services/ /Build
 WORKDIR /Build
 #bloodstone services
 # debug first
-RUN cd Debug && dotnet build -c Release
+RUN cd Chat && dotnet build -c Release
+RUN cd Operation && dotnet build -c Release
 RUN cd Subrace && dotnet build -c Release
 RUN cd Tracking && dotnet build -c Release
 # ...
@@ -14,7 +15,8 @@ FROM nwnxee/unified:17d1479
 LABEL maintainer "urothis@gmail.com"
 # install our plugins
 # debug
-COPY --from=build /Build/Debug/bin/Release/Plugins/ /nwn/Dotnet/Plugins
+COPY --from=build /Build/Chat/bin/Release/Plugins/ /nwn/Dotnet/Plugins
+COPY --from=build /Build/Operation/bin/Release/Plugins/ /nwn/Dotnet/Plugins
 COPY --from=build /Build/Subrace/bin/Release/Plugins/ /nwn/Dotnet/Plugins
 COPY --from=build /Build/Tracking/bin/Release/Plugins/ /nwn/Dotnet/Plugins
 # ...

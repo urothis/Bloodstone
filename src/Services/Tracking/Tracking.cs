@@ -15,6 +15,12 @@ namespace Bloodstone {
             eventService.Subscribe<NwModule, ModuleEvents.OnPlayerRest>(NwModule.Instance, OnPlayerRest);
             eventService.Subscribe<NwModule, ModuleEvents.OnClientLeave>(NwModule.Instance, OnClientLeave);
             eventService.Subscribe<NwModule, ModuleEvents.OnPlayerDying>(NwModule.Instance, OnPlayerDying);
+            /*
+            eventService.Subscribe<NwModule, ModuleEvents.OnAcquireItem>(NwModule.Instance, OnPlayerDying);
+            eventService.Subscribe<NwModule, ModuleEvents.OnUnacquireItem>(NwModule.Instance, OnPlayerDying);
+            eventService.Subscribe<NwModule, ModuleEvents.OnPlayerDeath>(NwModule.Instance, OnPlayerDying);
+            eventService.Subscribe<NwModule, ModuleEvents.OnActivateItem>(NwModule.Instance, OnPlayerDying); 
+            */
         }
 
         private void OnClientEnter(ModuleEvents.OnClientEnter onClientEnter) {

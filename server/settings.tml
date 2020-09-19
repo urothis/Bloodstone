@@ -48,7 +48,7 @@
 			max-files = 1000
 			max-megabytes = 3
 [ruleset]
-	always-roll-max-hitpoints-on-levelup = false
+	always-roll-max-hitpoints-on-levelup = true
 	difficulty = 1
 	enforce-legal-characters = true
 	hide-hitpoints-gained-on-levelup = false
@@ -72,9 +72,9 @@
 [server]
 	allow-player-pausing = false
 	disallow-shouting = false
-	one-party-only = true
+	one-party-only = false
 	pvp-mode = 1
-	reload-when-empty = true
+	reload-when-empty = false
 	restore-spell-uses-on-login = false
 	savegames-store-characters = true
 	savegames-vault-characters-only = false
