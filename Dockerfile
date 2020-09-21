@@ -12,7 +12,9 @@ COPY --from=build /Build/bin/Release/Plugins/Bloodstone/ /nwn/Dotnet/Plugins
 # install the unzip package so we can grab the latest managed binaries
 RUN apt update && apt upgrade -y && apt install unzip
 RUN cd /nwn/Dotnet && wget "https://github.com/nwn-dotnet/NWN.Managed/releases/download/v8193.14.23/NWN.Managed.zip" -O temp.zip && unzip temp.zip && rm temp.zip
-ENV NWN_AUTOSAVEINTERVAL=0 \
+ENV NWN_SERVERNAME=Bloodstone \
+    NWN_PUBLICSERVER=0 \
+    NWN_AUTOSAVEINTERVAL=0 \
     NWN_DIFFICULTY=3 \
     NWN_ELC=1 \
     NWN_GAMETYPE=0 \
