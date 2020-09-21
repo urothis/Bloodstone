@@ -365,3 +365,5 @@ logs/
 server/
 
 .idea/
+.nasher/
+Bloodstone.mod
