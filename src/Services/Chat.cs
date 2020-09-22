@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
+using NLog;
 using NWN.API;
 using NWN.API.Events;
 using NWN.Services;
 
 namespace Bloodstone.Chat {
-    private static readonly Logger Log = LogManager.GetCurrentClassLogger();
 
     public interface IChatCommand {
         string Command { get; }
@@ -37,6 +37,7 @@ namespace Bloodstone.Chat {
     [ServiceBinding(typeof(ChatHandler))]
     public class ChatHandler {
         private readonly List<IChatCommand> chatCommands;
+        private static readonly Logger Log = LogManager.GetCurrentClassLogger();
 
         // We set the EventService as a dependency so we can subscribe to the module chat event.
         // And we add a dependency to the chat commands created above by defining an IEnumerable parameter of the interface type.

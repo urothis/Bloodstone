@@ -1,15 +1,15 @@
 using System;
+using NLog;
 using NWN.API;
 using NWN.API.Events;
 using NWN.Services;
 
 namespace Bloodstone {
-    private static readonly Logger Log = LogManager.GetCurrentClassLogger();
-
     // [ServiceBinding] indicates that this class will be created during server startup.
     [ServiceBinding(typeof(Subrace))]
     public class Subrace {
         // Called at startup. NWN.Managed resolves EventService for us.
+        private static readonly Logger Log = LogManager.GetCurrentClassLogger();
         public Subrace(EventService eventService) {
             eventService.Subscribe<NwModule, ModuleEvents.OnClientEnter>(NwModule.Instance, OnClientEnter);
             eventService.Subscribe<NwModule, ModuleEvents.OnPlayerLevelUp>(NwModule.Instance, OnPlayerLevelUp);
