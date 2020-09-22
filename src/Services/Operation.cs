@@ -1,21 +1,23 @@
-using System;
+using NLog;
 using NWN.API;
 using NWN.API.Events;
 using NWN.Services;
 
 namespace Bloodstone {
+    private static readonly Logger Log = LogManager.GetCurrentClassLogger();
+
     // [ServiceBinding] indicates that this class will be created during server startup.
     [ServiceBinding(typeof(Operation))]
     public class Operation {
-        // Called at startup. NWN.Managed resolves EventService for us.
+        private static readonly Logger Log = LogManager.GetCurrentClassLogger();
+
         public Operation(EventService eventService) {
-            // Subscribe to the OnClientEnter event, and call our OnClientEnter function when someone connects.
             eventService.Subscribe<NwModule, ModuleEvents.OnModuleLoad>(NwModule.Instance, OnModuleLoad);
         }
 
         private void OnModuleLoad(ModuleEvents.OnModuleLoad onModuleLoad) {
-
-            Console.WriteLine("module loaded");
+            NWNX.API.Administration.DMPassword = "thing";
+            Log.Warn("module loaded");
         }
     }
 }

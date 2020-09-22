@@ -4,6 +4,8 @@ using NWN.API.Events;
 using NWN.Services;
 
 namespace Bloodstone {
+    private static readonly Logger Log = LogManager.GetCurrentClassLogger();
+
     // [ServiceBinding] indicates that this class will be created during server startup.
     [ServiceBinding(typeof(Tracking))]
     public class Tracking {
