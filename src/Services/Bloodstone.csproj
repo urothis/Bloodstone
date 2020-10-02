@@ -25,6 +25,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="NWN.Managed" Version="8193.14.23-alpha" ExcludeAssets="runtime" />
+        <PackageReference Include="NWN.Managed" Version="8193.16.6-alpha" ExcludeAssets="runtime" />
+        <PackageReference Include="RandN" Version="0.1.0" />
+        <PackageReference Include="RoyT.AStar" Version="3.0.2" />
+        <PackageReference Include="SimplexNoise" Version="2.0.0" />
+        <PackageReference Include="SixLabors.ImageSharp" Version="1.0.1" />
+        <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
     </ItemGroup>
 </Project>

@@ -21,7 +21,7 @@ COPY --from=moduleBuild /src/moduleBuild/Bloodstone.mod /nwn/data/data/mod
 COPY --from=build /Build/bin/Release/Plugins/Bloodstone/ /nwn/Dotnet/Plugins
 # install the unzip package so we can grab the latest managed binaries
 RUN apt update && apt upgrade -y && apt install unzip libc6-dev libgdiplus -y
-RUN cd /nwn/Dotnet && wget "https://github.com/nwn-dotnet/NWN.Managed/releases/download/v8193.16.1/NWN.Managed.zip" -O temp.zip && unzip temp.zip && rm temp.zip
+RUN cd /nwn/Dotnet && wget "https://github.com/nwn-dotnet/NWN.Managed/releases/download/v8193.16.6/NWN.Managed.zip" -O temp.zip && unzip temp.zip && rm temp.zip
 ENV NWN_SERVERNAME=Bloodstone \
     NWN_MODULE=Bloodstone \
     NWN_PUBLICSERVER=0 \
