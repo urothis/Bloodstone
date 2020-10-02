@@ -7,7 +7,7 @@ RUN nasher pack
 # Pull Dotnet image to build the project
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
 RUN apt-get update && apt-get clean && rm -rf /var/lib/apt/lists/*
-ADD ./src /Build
+ADD ./src/Services /Build
 WORKDIR /Build
 RUN dotnet publish -c Release
 
