@@ -1,5 +1,5 @@
 # build the module file
-FROM nwntools/nasher:latest AS moduleBuild
+FROM index.docker.io/nwntools/nasher:latest AS moduleBuild
 ADD . /src/moduleBuild/
 WORKDIR /src/moduleBuild
 RUN nasher pack
