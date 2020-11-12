@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net5.0</TargetFramework>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
         <IsPackable>false</IsPackable>
@@ -8,7 +8,7 @@
         <EnableDynamicLoading>true</EnableDynamicLoading>
         <RootNamespace>Sample</RootNamespace>
         <RuntimeIdentifier>linux-x64</RuntimeIdentifier>
-        <LangVersion>8</LangVersion>
+        <LangVersion>9.0</LangVersion>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
@@ -25,11 +25,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="NWN.Managed" Version="8193.16.6-alpha" ExcludeAssets="runtime" />
+        <PackageReference Include="NWN.Managed" Version="8913.16.0-alpha" ExcludeAssets="runtime" />
         <PackageReference Include="RandN" Version="0.1.0" />
         <PackageReference Include="RoyT.AStar" Version="3.0.2" />
         <PackageReference Include="SimplexNoise" Version="2.0.0" />
         <PackageReference Include="SixLabors.ImageSharp" Version="1.0.1" />
-        <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+        <PackageReference Include="System.Drawing.Common" Version="5.0.0" />
     </ItemGroup>
 </Project>

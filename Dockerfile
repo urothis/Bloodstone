@@ -5,14 +5,14 @@ WORKDIR /src/moduleBuild
 RUN nasher pack
 
 # Pull Dotnet image to build the project
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 RUN apt-get update && apt-get clean && rm -rf /var/lib/apt/lists/*
 ADD ./src/Services /Build
 WORKDIR /Build
 RUN dotnet publish -c Release
 
-# Build the final NWN server image (Version: 8193.16 Date: 10/1)
-FROM index.docker.io/nwnxee/unified:c7392de
+# Build the final NWN server image (Version: 8193.16 Date: 11/11)
+FROM index.docker.io/nwnxee/unified:fe2f143
 LABEL maintainer="urothis"
 RUN apt-get update && apt-get clean && rm -rf /var/lib/apt/lists/*
 # copy our module over
@@ -20,8 +20,8 @@ COPY --from=moduleBuild /src/moduleBuild/Bloodstone.mod /nwn/data/data/mod
 # install our services
 COPY --from=build /Build/bin/Release/Plugins/Bloodstone/ /nwn/Dotnet/Plugins
 # install the unzip package so we can grab the latest managed binaries
-RUN apt update && apt upgrade -y && apt install unzip libc6-dev libgdiplus -y
-RUN cd /nwn/Dotnet && wget "https://github.com/nwn-dotnet/NWN.Managed/releases/download/v8193.16.6/NWN.Managed.zip" -O temp.zip && unzip temp.zip && rm temp.zip
+RUN apt update && apt upgrade -y && apt install wget unzip libc6-dev libgdiplus -y
+RUN cd /nwn/Dotnet && wget "https://github.com/nwn-dotnet/NWN.Managed/releases/download/v8193.16.31/NWN.Managed.zip" -O temp.zip && unzip temp.zip && rm temp.zip
 ENV NWN_SERVERNAME=Bloodstone \
     NWN_MODULE=Bloodstone \
     NWN_PUBLICSERVER=0 \
